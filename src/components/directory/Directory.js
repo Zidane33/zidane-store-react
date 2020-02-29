@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from '../menu-item/MenuItem';
-import './Directory.scss';
+import './directory.styles.scss';
 
 class Directory extends React.Component {
 	constructor(props){
@@ -8,37 +8,39 @@ class Directory extends React.Component {
 		this.state={
 			section: [{
 				title: 'Hats',
-				image: '',
+                image: 'https://i.ibb.co/cvpntL1/hats.png',
 				id: 1,
 			},
 			{
 				title: 'Sneakers',
-				image: '',
+                image: 'https://i.ibb.co/px2tCc3/jackets.png',
 				id: 2,
 			},
 			{
 				title: 'Jackets',
-				image: '',
+                image: 'https://i.ibb.co/0jqHpnp/sneakers.png',
 				id: 3,
 			},
 			{
 				title: 'Accessories',
-				image: '',
+                image: 'https://i.ibb.co/GCCdy8t/womens.png',
 				id: 4,
+                size: 'large',
 			},
 			{
 				title: 'Pants',
-				image: '',
+                image: 'https://i.ibb.co/R70vBrQ/men.png',
 				id: 5,
+                size: 'large',
 			},
 			]
 		}
 	}
 	render() {
 		return (
-			<div>
-				{this.state.section.map(({id, title, image}) => (
-					<MenuItem image={image} key={id} title={title} />
+			<div className='directory-menu'>
+				{this.state.section.map(({id, title, image, size}) => (
+					<MenuItem image={image} key={id} title={title} size={size}/>
 				))}
 			</div>
 		)
