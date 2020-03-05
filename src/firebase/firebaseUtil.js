@@ -22,7 +22,7 @@ const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
-export const createUserDocument = async (userAuth) => {
+export const createUserDocument = async (userAuth, otherData) => {
    if (!userAuth) {
        return
    } 
@@ -39,6 +39,7 @@ export const createUserDocument = async (userAuth) => {
                 displayName,
                 email,
                 createdAt,
+                ...otherData
             })
         } catch(err){
             console.log('error creating user' + err.message)
