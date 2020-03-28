@@ -2,11 +2,13 @@ import React from 'react';
 import CollectionItem from '../collection-item/CollectionItem';
 import './collection-preview.styles.scss';
 
-const Preview = (item) => (
+const Preview = (items) => (
     <div className='collection-preview'>
-        <h1 className='title'>{item.name}</h1>
+        <h1 className='title'>{items.items[0].collection.title}</h1>
         <div className='preview'>
-            <CollectionItem key={item.id} item={item} />
+            {items.items.filter((item, index) => index < 4).map((item) => (
+                <CollectionItem key={item.id} item={item} />
+            ))}
         </div>
     </div>
 )

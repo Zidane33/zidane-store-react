@@ -24,13 +24,16 @@ class Collections extends React.Component {
             return(<h1>Loading</h1>);
         }
 
-        console.log(collection.filter(({ collection: collection }) => collection.title === 'Hats'));
+        const collections = ['Hats', 'Jackets', 'Mens', 'Womens', 'Shoes'];
         
         return (
                 <div className='collections-overview'>
-                    {collection.filter(({ collection: collection }) => collection.title === 'Hats').map(({id, ...otherProps}) => (
-                        <Preview key={id} {...otherProps} />
-                    ))}
+                    {collections.map((collectionName, index) => {
+                        const items = collection.filter(({ collection: collection }) => collection.title === collectionName);
+                        return (
+                            <Preview key={index} items={items} />
+                        )}
+                    )}
                 </div>
             )
         };
