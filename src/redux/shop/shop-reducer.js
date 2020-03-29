@@ -1,10 +1,9 @@
-import { fetchCollectionsError, fetchCollectionsPending, fetchCollectionsSuccess } from './shop-actions';
+import { fetchCollectionsError, fetchCollectionsSuccess } from './shop-actions';
 const url = 'http://localhost:8080/product';
 
 
 export const fetchCollections = () => {
     return dispatch => {
-        dispatch(fetchCollectionsPending());
         fetch(url).then(res => res.json())
             .then(collection => {
                 if(collection.error){
@@ -26,20 +25,10 @@ const INITIAL_STATE = {
 
 const shopReducer = (state = INITIAL_STATE, action) => {
     switch(action.type){
-        case 'FETCH_COLLECTIONS_PENDING':
-            return {
-                ...state,
-                pending: true
-            }
         case 'FETCH_COLLECTIONS_SUCCESS':
             return {
                 ...state,
                 collection: [...action.payload],
-            }
-        case 'RENDER_COMPONENT':
-            return {
-                ...state,
-                pending: false
             }
         case 'FETCH_COLLECTIONS_ERROR':
             return {
