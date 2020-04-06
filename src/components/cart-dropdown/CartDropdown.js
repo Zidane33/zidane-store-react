@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CustomButton from '../button/CustomButton';
 import CartItem from '../cart-item/CartItem';
 import { selectCartItems } from '../../redux/cart/cart-selector';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { toggleCartHidden } from '../../redux/cart/cart-actions';
 import './cart-dropdown.styles.scss';
 
@@ -18,7 +18,7 @@ const Cart = ({ cartItems, history, dispatch }) => (
             }
         </div>
         <CustomButton onClick={() => {
-                history.push('./checkout');
+                history.push('/checkout');
                 dispatch(toggleCartHidden());
             }}>
             GO TO CHECKOUT
