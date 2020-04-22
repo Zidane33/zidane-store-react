@@ -1,42 +1,38 @@
-const INITIAL_STATE =  
-    {
-        sections: [{
-            title: 'Hats',
-            image: 'https://i.ibb.co/cvpntL1/hats.png',
-            id: 1,
-            linkUrl: 'shop/hats'
-        },
-        {
-            title: 'Shoes',
-            image: 'https://i.ibb.co/px2tCc3/jackets.png',
-            id: 2,
-            linkUrl: 'shop/sneakers'
-        },
-        {
-            title: 'Jackets',
-            image: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-            id: 3,
-            linkUrl: 'shop/jackets'
-        },
-        {
-            title: 'Womens',
-            image: 'https://i.ibb.co/GCCdy8t/womens.png',
-            id: 4,
-            size: 'large',
-            linkUrl: 'shop/womens'
-        },
-        {
-            title: 'Mens',
-            image: 'https://i.ibb.co/R70vBrQ/men.png',
-            id: 5,
-            size: 'large',
-            linkUrl: 'shop/mens'
-        },
-        ]
+import { fetchSectionsSuccess, fetchSectionsError } from './directory-actions';
+const url = 'http://localhost:8080/collections';
+
+export const fetchSections = () => {
+    return dispatch => {
+        fetch(url).then(res => res.json())
+            .then(section => {
+                if(section.error){
+                    throw(section.error);
+                }
+                dispatch(fetchSectionsSuccess(section));
+                return section;
+            })
+            .catch(error => {
+                dispatch(fetchSectionsError(error));
+            })
     }
+}
+const INITIAL_STATE = {
+    pending: true,
+    error: null
+}
 
 const directoryReducer = (state = INITIAL_STATE, action) => {
     switch(action.type){
+        case 'FETCH_SECTIONS_SUCCESS':
+            return {
+                ...state,
+                section: [...action.payload],
+            }
+        case 'FETCH_SECTIONS_ERROR':
+            return {
+                ...state,
+                section: [...action.payload],
+            }
         default:
             return state;
     }
