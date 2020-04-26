@@ -1,5 +1,5 @@
 import { fetchCollectionsError, fetchCollectionsSuccess } from './shop-actions';
-const url = 'http://localhost:8080/product';
+const url = 'http://zidanestore-env.eba-vycsi7vs.us-east-1.elasticbeanstalk.com/product';
 
 
 export const fetchCollections = () => {

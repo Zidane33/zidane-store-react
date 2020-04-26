@@ -26,6 +26,12 @@ const SignInForm = () => {
         setCredentials({...userCredentials, [name]: value });
     }
 
+    const signInWithDemoCredentials = event => {
+        const email = 'demo@email.com';
+        const password = 'login1';
+        setCredentials({email: email, password: password});
+    }
+
     return (
         <div className='sign-in'>
             <h2>I already have an account</h2>
@@ -49,10 +55,13 @@ const SignInForm = () => {
                 />
                 <div className='buttons'>
                     <CustomButton type='submit'>
-                    Submit
+                        Submit
                     </CustomButton>
                     <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-                    Sign in with Google
+                        Sign in with Google
+                    </CustomButton>
+                    <CustomButton onClick={signInWithDemoCredentials}>
+                        Demo Login
                     </CustomButton>
                 </div>
             </form>

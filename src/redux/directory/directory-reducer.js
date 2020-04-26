@@ -1,5 +1,5 @@
 import { fetchSectionsSuccess, fetchSectionsError } from './directory-actions';
-const url = 'http://localhost:8080/collections';
+const url = 'http://zidanestore-env.eba-vycsi7vs.us-east-1.elasticbeanstalk.com/collections';
 
 export const fetchSections = () => {
     return dispatch => {
