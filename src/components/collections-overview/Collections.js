@@ -17,7 +17,7 @@ class Collections extends React.Component {
             return(<h1>Loading</h1>);
         }
 
-        const collections = ['Hats', 'Jackets', 'Mens', 'Womens', 'Shoes'];
+        const collections = ['Art', 'Home', 'Kitchen', 'Handbags', 'Jewelry'];
         
         return (
                 <div className='collections-overview'>

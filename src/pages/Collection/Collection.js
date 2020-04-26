@@ -23,7 +23,7 @@ class Collection  extends React.Component {
                 <h2 className='title'>{collectionId}</h2>
                 <div className='items'>
                     {
-                        collection.filter(collection => collection.collection.route === collectionId).map(item => (
+                        collection.filter(collection => collection.collection.title.toLowerCase() === collectionId).map(item => (
                             <CollectionItem key={item.id} item={item} />
                         ))
                     }
