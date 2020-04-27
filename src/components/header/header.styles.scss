@@ -1,21 +1,26 @@
 .header {
-  height: 70px;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+  align-items: center;
+  background-color: 'antiquewhite';
 
   .logo-container {
-    height: 100%;
-    width: 70px;
-    padding: 25px;
+    height: 5rem;
+    width: 9rem;
+    background-image: url('../../assets/zidane-store.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .options {
     width: 50%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
 
     .option {
