@@ -60,10 +60,10 @@ const SignInForm = () => {
                     <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
                         Sign in with Google
                     </CustomButton>
-                    <CustomButton onClick={signInWithDemoCredentials}>
-                        Demo Login
-                    </CustomButton>
                 </div>
+                <CustomButton id='demo-login' onClick={signInWithDemoCredentials}>
+                    Demo Login
+                </CustomButton>
             </form>
         </div>
         )
