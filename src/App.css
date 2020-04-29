@@ -6,6 +6,12 @@ body {
     font-family: "Helvetica Neue";
 }
 
+@media screen and (max-width: 1000px) {
+    body {
+        padding: 0px;
+    }
+}
+
 a {
     text-decoration: none;
     color: black;
