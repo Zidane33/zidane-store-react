@@ -3,13 +3,12 @@ const url = 'http://zidanestore-env.eba-vycsi7vs.us-east-1.elasticbeanstalk.com/
 
 export const fetchSections = () => {
     return dispatch => {
-        fetch(url).then(res => res.json())
+        return fetch(url).then(res => res.json())
             .then(section => {
                 if(section.error){
                     throw(section.error);
                 }
-                dispatch(fetchSectionsSuccess(section));
-                return section;
+                return dispatch(fetchSectionsSuccess(section));
             })
             .catch(error => {
                 dispatch(fetchSectionsError(error));
