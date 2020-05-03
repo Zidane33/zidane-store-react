@@ -6,30 +6,29 @@ import './directory.styles.scss';
 import { fetchSections } from '../../redux/directory/directory-reducer';
 
 class Directory extends React.Component {
-    
-    componentDidMount(){
-        this.props.dispatch(fetchSections());
+  componentDidMount() {
+    this.props.dispatch(fetchSections());
+  }
+
+  render() {
+    const { areSectionsLoaded, sections } = this.props;
+    if (!areSectionsLoaded) {
+      return (<h1>Loading</h1>);
     }
 
-    render(){
-        const { areSectionsLoaded, sections } = this.props;
-        if(!areSectionsLoaded){
-            return(<h1>Loading</h1>);
-        }
-
-		return (
-			<div className='directory-menu'>
-				{sections.map(({id, title, image}) => (
-					<MenuItem image={image} key={id} title={title} />
-				))}
-			</div>
-		);
-    }
+    return (
+      <div className="directory-menu">
+        {sections.map(({ id, title, image }) => (
+          <MenuItem image={image} key={id} title={title} />
+        ))}
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-    sections: selectDirectorySections(state),
-    areSectionsLoaded: areSectionsLoaded(state)
-})
+const mapStateToProps = (state) => ({
+  sections: selectDirectorySections(state),
+  areSectionsLoaded: areSectionsLoaded(state),
+});
 
-export default connect(mapStateToProps)(Directory); 
+export default connect(mapStateToProps)(Directory);
