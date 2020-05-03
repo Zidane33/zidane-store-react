@@ -9,7 +9,7 @@ const StripeCheckoutButton = ({ price }) => {
   const onToken = (token) => {
     axios({
       method: 'POST',
-      url: 'http://localhost:8080/charge',
+      url: 'http://zidanestore-env.eba-vycsi7vs.us-east-1.elasticbeanstalk.com/charge',
       data: ({
         stripeToken: token.id,
         amount: priceForStripe,
