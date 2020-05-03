@@ -10,18 +10,16 @@ const mockStore = configureMockStore(middleware);
 describe('Unit test action creators', () => {
 
     afterEach(() => {
-        fetchMock.reset()
+        fetch.resetMocks();
     });
 
     it('Fetch sections error', () => {
-        fetch.mockReject('/', {
-            body: {section: 'sections'}
-        })
-
         const store = mockStore({ directory: []})
 
-        store.dispatch(fetchSections()).then(() => {
-            return expect(store.getActions()).toThrow();
+        fetch.mockReject(() => {
+            store.dispatch(fetchSections()).then(() => {
+                return expect(store.getActions()[0].type).toEqual('FETCH_SECTIONS_ERROR');
+            }).catch(e => console.log(e))
         })
     })
 
@@ -36,10 +34,8 @@ describe('Unit test action creators', () => {
         const store = mockStore({})
 
         store.dispatch(fetchSections()).then(() => {
-            return expect(store.getActions()).toBeTruthy();
-        })
-
-
+            return expect(store.getActions()[0].type).toEqual('FETCH_SECTIONS_SUCCESS');
+        }).catch(e => console.log(e))
     })
 })
 

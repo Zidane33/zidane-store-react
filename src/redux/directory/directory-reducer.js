@@ -11,7 +11,7 @@ export const fetchSections = () => {
                 return dispatch(fetchSectionsSuccess(section));
             })
             .catch(error => {
-                dispatch(fetchSectionsError(error));
+                return dispatch(fetchSectionsError(error));
             })
     }
 }
