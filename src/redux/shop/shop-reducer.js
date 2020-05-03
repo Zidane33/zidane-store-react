@@ -4,7 +4,7 @@ const url = 'http://zidanestore-env.eba-vycsi7vs.us-east-1.elasticbeanstalk.com/
 
 export const fetchCollections = () => {
     return dispatch => {
-        fetch(url).then(res => res.json())
+        return fetch(url).then(res => res.json())
             .then(collection => {
                 if(collection.error){
                     throw(collection.error);
@@ -13,7 +13,7 @@ export const fetchCollections = () => {
                 return collection;
             })
             .catch(error => {
-                dispatch(fetchCollectionsError(error));
+                return dispatch(fetchCollectionsError(error));
             })
     }
 }
