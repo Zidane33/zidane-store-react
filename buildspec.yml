@@ -13,7 +13,7 @@ phases:
       - echo building...
       - npm run build
       - echo testing...
-      - npm test
+      - npm test -- --watchAll=false
 artifacts:
   files:
     - "**/*"
