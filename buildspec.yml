@@ -8,14 +8,12 @@ phases:
     commands:
       - echo installing source npm dependencies...
       - npm install
-  test:
-    commands:
-      - echo testing...
-      - npm test
   build:
     commands:
       - echo building...
       - npm run build
+      - echo testing...
+      - npm test
 artifacts:
   files:
     - "**/*"
